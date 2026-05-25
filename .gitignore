@@ -27,6 +27,19 @@ latex_compile_status.md
 docx_audit.json
 vancouver.csl
 
+# Downloaded data and generated experiment outputs
+/data/
+/runs/
+/project_outputs/
+/latex/
+/notebooks/
+/reports/
+/configs/
+/tests/
+*.joblib
+*.pt
+*.pth
+
 # Python and analysis byproducts
 __pycache__/
 *.py[cod]

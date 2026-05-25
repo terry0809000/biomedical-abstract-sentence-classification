@@ -6,13 +6,18 @@ This repository contains cleaned reproducibility artifacts for a healthcare NLP 
 
 Included:
 
+- `scripts/`: runnable experiment pipeline for downloading public datasets, preparing splits, training models, evaluating performance, calibration, external validation, and error/subgroup analysis.
+- `src/`: reusable data parsing, feature extraction, model, calibration, evaluation, plotting, and utility modules.
 - `results/figures/`: final diagnostic figures for class balance, sentence length, ROC, precision-recall, calibration, confusion matrix, and sentence-length subgroup performance.
 - `results/tables/`: CSV versions of the locked result tables used for reporting model comparison, calibration, external validation, and subgroup diagnostics.
+- `requirements.txt`: dependencies for the classical CPU pipeline.
+- `requirements-neural.txt`: optional CPU PyTorch dependency for neural models.
 
 Intentionally excluded:
 
 - Word documents (`.docx`), compiled manuscripts (`.pdf`), and submission zip packages.
-- Manuscript source files, cover letters, references, journal submission checklists, and paper-only folders.
+- Manuscript source files, cover letters, references, journal submission checklists, LaTeX folders, and paper-only folders.
+- Downloaded raw/processed datasets, trained model artifacts, prediction dumps, run folders, and generated project-output folders.
 - Unsafe biological protocol or operational guidance.
 
 ## Study Summary
@@ -29,6 +34,52 @@ The reported workflow emphasizes:
 - calibration assessment using Brier score, expected calibration error, calibration slope/intercept, and reliability curves;
 - sentence-length subgroup diagnostics;
 - decision-threshold reporting through confusion-matrix and threshold-dependent metrics.
+
+## Quick Start
+
+Create an environment and install the classical CPU dependencies:
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Run the core classical pipeline:
+
+```bash
+python scripts/run_core_pipeline.py
+```
+
+This command downloads public source data, prepares the binary task, trains the majority baseline plus TF-IDF logistic regression and linear SVM models, evaluates internal and external performance, writes calibration diagnostics, and produces subgroup/error-analysis outputs.
+
+To also train the CPU neural models, install the optional PyTorch dependency and pass `--include-neural`:
+
+```bash
+python -m pip install -r requirements-neural.txt
+python scripts/run_core_pipeline.py --include-neural
+```
+
+The neural path is intentionally optional because it can take substantially longer on CPU-only hardware.
+
+## Pipeline Steps
+
+The individual scripts can also be run in order:
+
+```bash
+python scripts/01_download_data.py
+python scripts/02_prepare_data.py
+python scripts/03_data_audit.py
+python scripts/10_train_classical.py
+python scripts/11_train_neural.py        # optional CPU neural models
+python scripts/12_evaluate.py
+python scripts/13_calibrate.py
+python scripts/14_external_validation.py
+python scripts/20_error_analysis.py
+```
+
+Generated files are written under `data/`, `runs/`, and `project_outputs/`; these are ignored by Git to keep the repository lightweight.
 
 ## Main Result Artifacts
 
@@ -52,7 +103,7 @@ The figure artifacts include:
 
 ## Reproducibility Note
 
-The supplied local folder did not contain runnable model-training source code. For that reason, this repository preserves the clean result artifacts only and avoids uploading manuscript or submission files. If the experiment scripts are later available, add them under an `analysis/` or `src/` directory with dependency instructions and a deterministic run command.
+The repository now includes the runnable experimental code from the local CPU project package. Manuscript-generation and submission-packaging scripts were intentionally left out, because this repository is meant to expose the computational workflow rather than the paper files.
 
 ## Data Note
 
