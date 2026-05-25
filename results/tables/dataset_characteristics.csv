@@ -1,0 +1,5 @@
+Dataset,Split,Total,Positive,Other,Positive %,Median words
+PubMed-20k-RCT,external_test,30135,14284,15851,47.4,23.0
+PubMed-PICO,test,31270,13556,17714,43.4,21.5
+PubMed-PICO,train,257820,111377,146443,43.2,21.5
+PubMed-PICO,validation,30878,13386,17492,43.4,21.5

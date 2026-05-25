@@ -1,0 +1,8 @@
+Model,Test AUC,External AUC,AUC drop,External F1,External Brier,External ECE
+bilstm,0.974,0.937,-0.037,0.857,0.100,0.042
+bilstm_dropout,0.964,0.916,-0.048,0.827,0.120,0.060
+ffnn_avg_embeddings,0.962,0.912,-0.050,0.828,0.119,0.037
+lstm,0.891,0.835,-0.057,0.749,0.169,0.097
+majority_baseline,0.500,0.500,0.000,0.000,0.251,0.042
+tfidf_linear_svm,0.974,0.945,-0.029,0.877,0.088,0.025
+tfidf_logistic_regression,0.976,0.948,-0.028,0.879,0.085,0.024

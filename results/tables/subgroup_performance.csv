@@ -1,0 +1,9 @@
+Split,Group,n,ROC AUC,Brier,ECE
+test,short,8600,0.974,0.053,0.016
+test,medium_short,7404,0.965,0.069,0.015
+test,medium_long,7480,0.974,0.058,0.012
+test,long,7786,0.984,0.042,0.014
+external,short,8216,0.921,0.108,0.040
+external,medium_short,7154,0.938,0.095,0.028
+external,medium_long,7676,0.954,0.078,0.020
+external,long,7089,0.970,0.058,0.018
