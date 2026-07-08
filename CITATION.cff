@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite this software package."
+title: "Biomedical abstract sentence classification reproducibility workflow"
+type: software
+authors:
+  - family-names: "Yu"
+    given-names: "Terry"
+repository-code: "https://github.com/terry0809000/biomedical-abstract-sentence-classification"
+version: "1.0.0"
+date-released: "2026-07-08"

@@ -111,4 +111,25 @@ This project uses public biomedical NLP datasets. Source datasets should be obta
 
 ## License
 
-No license has been declared in the supplied materials. Unless a license is added by the repository owner, all rights are reserved by default.
+Source code is released under the repository `LICENSE`. Manuscript or submission material is not included in this public computational package.
+
+## Public Repository Release Layer
+
+This repository has been prepared as a public, citable research-software
+package rather than a notebook-only upload.
+
+Key public-release files:
+
+- `docs/CLINICAL_ALGORITHMICIAN_ANNOTATION.md`
+- `docs/DEPLOYMENT_READINESS.md`
+- `DATA_ACCESS.md`
+- `.zenodo.json`
+- `scripts/validate_repository.py`
+- `.github/workflows/repository-publication.yml`
+- `Dockerfile`
+
+Validate the release package with:
+
+```bash
+python scripts/validate_repository.py
+```

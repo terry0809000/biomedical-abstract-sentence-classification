@@ -1,0 +1,27 @@
+{
+  "title": "Biomedical abstract sentence classification reproducibility workflow",
+  "upload_type": "software",
+  "description": "public-dataset NLP reproducibility, model comparison, calibration analysis, and transparent error analysis",
+  "creators": [
+    {
+      "name": "Yu, Terry"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "biomedical NLP",
+    "sentence classification",
+    "calibration",
+    "external validation",
+    "PubMed"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/terry0809000/biomedical-abstract-sentence-classification",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "communities": []
+}
