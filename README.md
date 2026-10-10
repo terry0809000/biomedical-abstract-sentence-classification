@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/project-cover.png" width="100%" alt="Conceptual scientific artwork for Biomedical sentence classification" /></p>
+
 # Biomedical abstract sentence classification: revised pipeline
 
 **Clinical NLP · Research pipeline · Source-code release**
