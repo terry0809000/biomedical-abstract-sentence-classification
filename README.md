@@ -1,135 +1,68 @@
-# Biomedical Abstract Sentence Classification
+# Biomedical abstract sentence classification: revised pipeline
 
-This repository contains cleaned reproducibility artifacts for a healthcare NLP study on sentence-level classification of biomedical abstracts. The task is to distinguish findings/conclusion sentences from other abstract sentences using CPU-feasible machine-learning models, with emphasis on transparent evaluation rather than deployment.
+**Clinical NLP · Research pipeline · Source-code release**
 
-## Repository Scope
+This project provides the author's existing analysis implementation for biomedical abstract sentence classification: revised pipeline. Scientific source files are preserved from the local research product. This upload organizes code and documentation; it does not represent new experiments, model retraining or an independently verified reproduction.
 
-Included:
+## Pipeline
 
-- `scripts/`: runnable experiment pipeline for downloading public datasets, preparing splits, training models, evaluating performance, calibration, external validation, and error/subgroup analysis.
-- `src/`: reusable data parsing, feature extraction, model, calibration, evaluation, plotting, and utility modules.
-- `results/figures/`: final diagnostic figures for class balance, sentence length, ROC, precision-recall, calibration, confusion matrix, and sentence-length subgroup performance.
-- `results/tables/`: CSV versions of the locked result tables used for reporting model comparison, calibration, external validation, and subgroup diagnostics.
-- `requirements.txt`: dependencies for the classical CPU pipeline.
-- `requirements-neural.txt`: optional CPU PyTorch dependency for neural models.
+1. **Acquire inputs.** Acquire the original PubMed RCT and external abstract corpus releases using the saved downloader. Raw texts, row-level predictions and checkpoints are excluded.
+2. **Prepare the environment.** Use the project-specific dependency files listed below in an isolated environment. Preserve the versions and seeds recorded in the source release.
+3. **Prepare data and run the model or analysis.** Follow the original execution notes and entry points below, preserving time order, participant grouping and fixed evaluation boundaries.
+4. **Evaluate and summarize.** Use the included evaluation/analysis scripts. Write generated data, predictions, fitted objects and caches to a private working copy.
 
-Intentionally excluded:
+This is a source-only repository. Raw data, individual-level derivatives and fitted checkpoints are not bundled. Some saved-evidence reproduction commands in the original notes require artifacts from the original source release; obtain those independently where authorized.
 
-- Word documents (`.docx`), compiled manuscripts (`.pdf`), and submission zip packages.
-- Manuscript source files, cover letters, references, journal submission checklists, LaTeX folders, and paper-only folders.
-- Downloaded raw/processed datasets, trained model artifacts, prediction dumps, run folders, and generated project-output folders.
-- Unsafe biological protocol or operational guidance.
+## Environment
 
-## Study Summary
+- [`revision_20260916/analysis/requirements.txt`](revision_20260916/analysis/requirements.txt)
+- [`revision_20260916/environment_versions.json`](revision_20260916/environment_versions.json)
 
-The study evaluates lightweight classical and recurrent NLP models for identifying findings/conclusion sentences in biomedical abstracts. The primary corpus is PubMed-PICO with official train, validation, and test splits. PubMed 20k RCT is used as an external validation corpus with a compatible binary label mapping.
+## Execution
 
-The reported workflow emphasizes:
+See the [pipeline and command reference](PIPELINE.md) for entry points, required arguments and the source-specific input contract.
 
-- split-aware model development using official dataset partitions;
-- preprocessing fitted only on training data;
-- validation-based model selection;
-- held-out internal test evaluation;
-- external validation where available;
-- calibration assessment using Brier score, expected calibration error, calibration slope/intercept, and reliability curves;
-- sentence-length subgroup diagnostics;
-- decision-threshold reporting through confusion-matrix and threshold-dependent metrics.
-
-## Quick Start
-
-Create an environment and install the classical CPU dependencies:
+Run commands from the repository root unless the original notes specify another working directory. Use a fresh copy and configure local data paths before running.
 
 ```bash
-python -m venv .venv
-.venv\Scripts\activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python revision_20260916/analysis/run_reproduction.py fit
 ```
 
-Run the core classical pipeline:
+### Original execution notes
 
-```bash
-python scripts/run_core_pipeline.py
-```
+- [README.md](docs/original/revision_20260916/README.md)
 
-This command downloads public source data, prepares the binary task, trains the majority baseline plus TF-IDF logistic regression and linear SVM models, evaluates internal and external performance, writes calibration diagnostics, and produces subgroup/error-analysis outputs.
+### Scientific source inventory
 
-To also train the CPU neural models, install the optional PyTorch dependency and pass `--include-neural`:
+<details>
+<summary>Browse the preserved scientific implementation</summary>
 
-```bash
-python -m pip install -r requirements-neural.txt
-python scripts/run_core_pipeline.py --include-neural
-```
+- [`revision_20260916/analysis/check_statistics.py`](revision_20260916/analysis/check_statistics.py)
+- [`revision_20260916/analysis/download_revision_data.py`](revision_20260916/analysis/download_revision_data.py)
+- [`revision_20260916/analysis/evidence_io.py`](revision_20260916/analysis/evidence_io.py)
+- [`revision_20260916/analysis/legacy_src/src/__init__.py`](revision_20260916/analysis/legacy_src/src/__init__.py)
+- [`revision_20260916/analysis/legacy_src/src/data/__init__.py`](revision_20260916/analysis/legacy_src/src/data/__init__.py)
+- [`revision_20260916/analysis/legacy_src/src/data/parsers.py`](revision_20260916/analysis/legacy_src/src/data/parsers.py)
+- [`revision_20260916/analysis/legacy_src/src/evaluation/__init__.py`](revision_20260916/analysis/legacy_src/src/evaluation/__init__.py)
+- [`revision_20260916/analysis/legacy_src/src/evaluation/metrics.py`](revision_20260916/analysis/legacy_src/src/evaluation/metrics.py)
+- [`revision_20260916/analysis/legacy_src/src/features/__init__.py`](revision_20260916/analysis/legacy_src/src/features/__init__.py)
+- [`revision_20260916/analysis/legacy_src/src/features/neural_tokenizer.py`](revision_20260916/analysis/legacy_src/src/features/neural_tokenizer.py)
+- [`revision_20260916/analysis/make_figures.py`](revision_20260916/analysis/make_figures.py)
+- [`revision_20260916/analysis/pin_source_versions.py`](revision_20260916/analysis/pin_source_versions.py)
+- [`revision_20260916/analysis/predict_saved_model.py`](revision_20260916/analysis/predict_saved_model.py)
+- [`revision_20260916/analysis/rebenchmark_inference.py`](revision_20260916/analysis/rebenchmark_inference.py)
+- [`revision_20260916/analysis/recompute_run_metrics.py`](revision_20260916/analysis/recompute_run_metrics.py)
+- [`revision_20260916/analysis/restore_prediction_archives.py`](revision_20260916/analysis/restore_prediction_archives.py)
+- [`revision_20260916/analysis/revised_pipeline.py`](revision_20260916/analysis/revised_pipeline.py)
+- [`revision_20260916/analysis/revised_statistics.py`](revision_20260916/analysis/revised_statistics.py)
+- [`revision_20260916/analysis/run_reproduction.py`](revision_20260916/analysis/run_reproduction.py)
 
-The neural path is intentionally optional because it can take substantially longer on CPU-only hardware.
+</details>
 
-## Pipeline Steps
+## Repository contents and rights
 
-The individual scripts can also be run in order:
+Only scientific code, dependencies, configuration and execution documentation are included. Manuscripts, submission documents, raw participant records, trained models, credentials, caches and software environments are excluded. Notebook cell outputs and execution counters are cleared for publication; code cells are retained.
 
-```bash
-python scripts/01_download_data.py
-python scripts/02_prepare_data.py
-python scripts/03_data_audit.py
-python scripts/10_train_classical.py
-python scripts/11_train_neural.py        # optional CPU neural models
-python scripts/12_evaluate.py
-python scripts/13_calibrate.py
-python scripts/14_external_validation.py
-python scripts/20_error_analysis.py
-```
+Existing source and third-party license notices govern their respective files. No blanket license is invented for material whose original release did not specify one. Original dataset licenses and access requirements continue to apply.
 
-Generated files are written under `data/`, `runs/`, and `project_outputs/`; these are ignored by Git to keep the repository lightweight.
-
-## Main Result Artifacts
-
-The cleaned result tables include:
-
-- `dataset_characteristics.csv`
-- `model_comparison.csv`
-- `calibration_metrics.csv`
-- `external_validation.csv`
-- `subgroup_performance.csv`
-
-The figure artifacts include:
-
-- `class_distribution.png`
-- `text_length_distribution.png`
-- `roc_curve_best_model.png`
-- `pr_curve_best_model.png`
-- `calibration_curve_best_model.png`
-- `confusion_matrix_best_model.png`
-- `subgroup_performance.png`
-
-## Reproducibility Note
-
-The repository now includes the runnable experimental code from the local CPU project package. Manuscript-generation and submission-packaging scripts were intentionally left out, because this repository is meant to expose the computational workflow rather than the paper files.
-
-## Data Note
-
-This project uses public biomedical NLP datasets. Source datasets should be obtained from their official providers rather than redistributed as substitutes for the original releases.
-
-## License
-
-Source code is released under the repository `LICENSE`. Manuscript or submission material is not included in this public computational package.
-
-## Public Repository Release Layer
-
-This repository has been prepared as a public, citable research-software
-package rather than a notebook-only upload.
-
-Key public-release files:
-
-- `docs/CLINICAL_ALGORITHMICIAN_ANNOTATION.md`
-- `docs/DEPLOYMENT_READINESS.md`
-- `DATA_ACCESS.md`
-- `.zenodo.json`
-- `scripts/validate_repository.py`
-- `.github/workflows/repository-publication.yml`
-- `Dockerfile`
-
-Validate the release package with:
-
-```bash
-python scripts/validate_repository.py
-```
+Research software is not a clinical deployment claim. Negative findings and the source release's interpretation limits remain applicable. No tests or experiments were run during this upload, as requested by the author.

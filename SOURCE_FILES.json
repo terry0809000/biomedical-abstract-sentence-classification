@@ -1,0 +1,98 @@
+[
+  {
+    "path": "revision_20260916/analysis/check_statistics.py",
+    "sha256": "2076d57f46908e42f6098d1e10693d48109f4056762b7c3b81f73db0bb2e1ce9"
+  },
+  {
+    "path": "revision_20260916/analysis/download_revision_data.py",
+    "sha256": "b0a5f7d64a13a14177b900b8905a88872ff1b17f5d505af06934e11bd23af578"
+  },
+  {
+    "path": "revision_20260916/analysis/evidence_io.py",
+    "sha256": "d9b37cce4f71f5409362eac70aded7e195316242656707fd986e82ea8cb13119"
+  },
+  {
+    "path": "revision_20260916/analysis/make_figures.py",
+    "sha256": "7f1f797b0f05e2f6413c384ed7c93049ed09a7a029580e6804132ede63ecb882"
+  },
+  {
+    "path": "revision_20260916/analysis/pin_source_versions.py",
+    "sha256": "c123557d6a5c65e8a676eb83837af7ce7cdeb5be1a6b06cf5dc5420b544a2cc4"
+  },
+  {
+    "path": "revision_20260916/analysis/predict_saved_model.py",
+    "sha256": "549274218a5a1df4b9de69a75a0a6785f8d3bcf9657f8c9519bcf382e3821955"
+  },
+  {
+    "path": "revision_20260916/analysis/rebenchmark_inference.py",
+    "sha256": "7bbefaa413ff66e950645d963c4f51ee9e69e14e9c9a98d6f8223247f6d49791"
+  },
+  {
+    "path": "revision_20260916/analysis/recompute_run_metrics.py",
+    "sha256": "23e47a74c477a36c20fa88b4a3ff01f91b37a24e9699d91642adb55ac42cdcc9"
+  },
+  {
+    "path": "revision_20260916/analysis/requirements.txt",
+    "sha256": "1c2443404b00d6ca3d57fa714f1cca9c7b356a0de1511cfe7b42b8ca4a64966d"
+  },
+  {
+    "path": "revision_20260916/analysis/restore_prediction_archives.py",
+    "sha256": "4411f9151614022c1ae9e8ed4b87034562749d6666c110057dd8700a4c3feec4"
+  },
+  {
+    "path": "revision_20260916/analysis/revised_pipeline.py",
+    "sha256": "462fab7fb3d0d5a92612bc0cab38e22d57c33604e40bd3bf244b2c66678be621"
+  },
+  {
+    "path": "revision_20260916/analysis/revised_statistics.py",
+    "sha256": "3f4055f972f1f9544451acf6dbd85d2232e523d51a4ba8130cd2d90cb50e07e5"
+  },
+  {
+    "path": "revision_20260916/analysis/run_reproduction.py",
+    "sha256": "9eaf583064ae66de01f365373424425cc9b790838f283fd60708b4a632c22c2a"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/data/parsers.py",
+    "sha256": "036e901ec0c4bc3753c78a3afdb3742c6d60e57c770a6d78f55bcc802d06c55e"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/data/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/evaluation/metrics.py",
+    "sha256": "7fd6ff15fc5caf32fb4697a414ba760b62b6f569f9b3ad4bb9418b4617789446"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/evaluation/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/features/neural_tokenizer.py",
+    "sha256": "3b0e0f3ef6b017f5d440c612716e251afe63f6e8fe841eae8c4b837f1a817185"
+  },
+  {
+    "path": "revision_20260916/analysis/legacy_src/src/features/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "revision_20260916/data/source_provenance.json",
+    "sha256": "df3f506b3562ee9eb7164eea68847dac813b730f8b929b2ea21dd5da6ccfe05a"
+  },
+  {
+    "path": "revision_20260916/environment_versions.json",
+    "sha256": "7b7ed4db2da3ec55cfa6be3550c3a5b65e3ac427483e278bd00510dec0bb254d"
+  },
+  {
+    "path": "revision_20260916/LICENSE",
+    "sha256": "a008bf846ab579c61c8da77b30b97e73e0b624408716645cbc4a61ecf6e1102d"
+  },
+  {
+    "path": "docs/original/revision_20260916/README.md",
+    "sha256": "299eb83f4d507183002bc82e5ad2b55950c74949b1a8198570737b48a55f1116"
+  }
+]
